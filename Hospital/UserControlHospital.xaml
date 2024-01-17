@@ -1,0 +1,82 @@
+﻿<UserControl x:Class="Hospital.UserControlHospital"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:Hospital"
+             mc:Ignorable="d"  Background="White" Height="300">
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="61*"/>
+            <ColumnDefinition Width="89*"/>
+        </Grid.ColumnDefinitions>
+        <Grid Grid.Column="0">
+            <Border Padding="30">
+                <Image x:Name="imageUserControl" Width="300"/>
+            </Border>
+        </Grid>
+        <Grid Grid.Column="1">
+            <Grid.RowDefinitions>
+                <RowDefinition/>
+                <RowDefinition/>
+                <RowDefinition/>
+                <RowDefinition/>
+            </Grid.RowDefinitions>
+            <Grid Grid.Row="0">
+                <TextBlock Text="ФИО: " x:Name="doctorFIO" FontSize="20" VerticalAlignment="Top" HorizontalAlignment="Left"/>
+                <TextBlock Text="специализация: " x:Name="doctorSpecialization" FontSize="20" VerticalAlignment="Center" HorizontalAlignment="Left"/>
+                <TextBlock Text="Стаж: " x:Name="doctorExperience" FontSize="20" VerticalAlignment="Bottom" HorizontalAlignment="Left"/>
+            </Grid>
+            <Grid Grid.Row="1">
+                <ComboBox x:Name="serviceComboBox" Margin="10,10,10,10" Visibility="Visible">
+                    <ComboBoxItem Content="Выберите услугу" IsEnabled="False"/>
+                </ComboBox>
+            </Grid>
+            <Grid Grid.Row="2" Margin="0,20,0,20">
+                <TextBlock x:Name="dateTimeSignUp" Text="Введите время записи (день/месяц/год/время): " FontSize="15" />
+                <TextBox x:Name="dateTimeSignUpTextBox" TextWrapping="Wrap" RenderTransformOrigin="0.5,0.5" >
+                    <TextBox.RenderTransform>
+                        <TransformGroup>
+                            <ScaleTransform ScaleY="1"/>
+                            <SkewTransform/>
+                            <RotateTransform/>
+                            <TranslateTransform/>
+                        </TransformGroup>
+                    </TextBox.RenderTransform>
+                    <TextBox.Style>
+                        <Style xmlns:sys="clr-namespace:System;assembly=mscorlib" TargetType="{x:Type TextBox}">
+                            <Style.Resources>
+                                <VisualBrush x:Key="CueBannerBrush" AlignmentX="Left" AlignmentY="Center" Stretch="None">
+                                    <VisualBrush.Visual>
+                                        <Label Foreground="LightGray" />
+                                    </VisualBrush.Visual>
+                                </VisualBrush>
+                            </Style.Resources>
+                            <Style.Triggers>
+                                <Trigger Property="Text" Value="{x:Static sys:String.Empty}">
+                                    <Setter Property="Background" Value="{StaticResource CueBannerBrush}" />
+                                </Trigger>
+                                <Trigger Property="Text" Value="{x:Null}">
+                                    <Setter Property="Background" Value="{StaticResource CueBannerBrush}" />
+                                </Trigger>
+                                <Trigger Property="IsKeyboardFocused" Value="True">
+                                    <Setter Property="Background" Value="White" />
+                                </Trigger>
+                            </Style.Triggers>
+                        </Style>
+                    </TextBox.Style>
+                </TextBox>
+            </Grid>
+            <Grid Grid.Row="3">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition/>
+                    <ColumnDefinition/>
+                </Grid.ColumnDefinitions>
+                <Grid Grid.Column="1">
+                    <Button x:Name="buttonSignUp" Content="Записаться" Height="30" Width="150" Click="buttonSignUp_Click"/>
+                </Grid>
+                
+            </Grid>
+        </Grid>
+    </Grid>
+</UserControl>

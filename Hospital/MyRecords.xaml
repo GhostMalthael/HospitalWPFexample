@@ -1,0 +1,27 @@
+﻿<Window x:Class="Hospital.MyRecords"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Hospital"
+        mc:Ignorable="d"
+        Title="MyRecords" Height="1080" Width="1920" WindowStartupLocation="CenterScreen" MinWidth="1150" MinHeight="530" MaxWidth="1920" MaxHeight="1080">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="11*"/>
+            <RowDefinition Height="122*"/>
+        </Grid.RowDefinitions>
+        <Grid Grid.Row="0">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="130*"/>
+                <ColumnDefinition Width="561*"/>
+                <ColumnDefinition Width="109*"/>
+            </Grid.ColumnDefinitions>
+            <Label Grid.Column="0" x:Name="label" Content="Мои записи" FontSize="50"/>
+            <Button Grid.Column="2" x:Name="buttonBackOnCart" Content="назад" FontSize="30" Margin="34,15,34,15" Click="buttonBackOnCart_Click"/>
+        </Grid>
+        <Grid Grid.Row="1" Margin="0,24,0,0">
+            <WrapPanel x:Name="wrapPanelInCart"/>
+        </Grid>
+    </Grid>
+</Window>

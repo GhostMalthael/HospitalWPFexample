@@ -1,0 +1,40 @@
+﻿<Window x:Class="Hospital.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Hospital"
+        mc:Ignorable="d"
+        Title="MainWindow" Height="1080" Width="1920" WindowStartupLocation="CenterScreen" MinWidth="1150" MinHeight="530" MaxWidth="1920" MaxHeight="1080">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="40*"/>
+            <RowDefinition Height="373*"/>
+        </Grid.RowDefinitions>
+        <Grid Grid.Row="0">
+            <StackPanel Orientation="Horizontal" Grid.Row="0" Height="70" VerticalAlignment="Top" HorizontalAlignment="Right">
+                <TextBox x:Name="SearchTextBox" Width="300" Height="48" FontSize="25"/>
+                <Button x:Name="Search" Content="" Width="70" BorderBrush="White" BorderThickness="5" Margin="0, 0, 100, 0">
+                    <Button.Background>
+                        <ImageBrush ImageSource="C:\Users\alexc\Desktop\search.png"/>
+                    </Button.Background>
+                </Button>
+                <Button x:Name="buttonMyRecords" Content="Мои записи" BorderBrush="White" BorderThickness="5" Width="106" Height="58" Visibility="Visible" Click="buttonMyRecords_Click"/>
+                <Button x:Name="buttonExit" Content="Выход" Width="106" Height="58" BorderBrush="White" BorderThickness="5" Visibility="Visible" Click="buttonExit_Click" />
+                <Button x:Name="buttonEnter" Content="Вход" Width="106" Height="58" BorderBrush="White" BorderThickness="5" Click="buttonEnter_Click" Visibility="Visible" />
+            </StackPanel>
+        </Grid>
+        <Grid Grid.Row="1">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="70*"/>
+                <ColumnDefinition Width="30*"/>
+            </Grid.ColumnDefinitions>
+            <Grid Grid.Column="0">
+                <WrapPanel Orientation="Horizontal" x:Name="wrapPanelMainWindow"/>
+            </Grid>
+            <Grid Grid.Column="1">
+                <ComboBox x:Name="comboBoxAllSpecialization" Margin="10,10,10,896" SelectionChanged="comboBoxAllSpecialization_SelectionChanged"/>
+            </Grid>
+        </Grid>
+    </Grid>
+</Window>
